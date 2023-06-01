@@ -1,16 +1,16 @@
-<?php
-$deeplink = $_GET['deeplink'];
-if (!empty($deeplink)) {
-    header("Location: $deeplink");
-    exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="ru-RU"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Deeplink test</title>
+    <script type="text/javascript">
+        const urlParams = new URLSearchParams(window.location.search);
+        const deeplink = urlParams.get('deeplink');
+        if (deeplink) {
+            window.location.href = deeplink;
+        }
+    </script>
 </head>
 <body>
     <form>
